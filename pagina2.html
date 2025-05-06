@@ -75,8 +75,7 @@
   </script>
 </head>
 <body>
-  <!-- CORREÇÃO: Removido action="/pagina3" -->
-  <form method="POST" enctype="multipart/form-data">
+  <form action="/pagina3" method="POST" enctype="multipart/form-data">
     <h1>Página 2</h1>
 
     <label>Qual será o local de instalação dos módulos:</label>
@@ -87,12 +86,141 @@
       <option value="c">Solo</option>
     </select>
 
-    <!-- Aqui segue o restante do conteúdo já enviado por você sem mudanças -->
-    <!-- BLOCO TELHADO -->
-    <!-- BLOCO LAJE -->
-    <!-- BLOCO SOLO -->
+    <div id="bloco_telhado" class="hidden">
+      <label>Qual o tipo de telhado do cliente:</label>
+      <select name="tipo_telhado">
+        <option>Fibrocimento</option>
+        <option>Cerâmico</option>
+        <option>Metálico</option>
+        <option>Outro</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_tipo_telhado"></label>
 
-    <!-- Botão final -->
+      <label>Qual a idade aproximada do telhado?</label>
+      <select name="idade_telhado">
+        <option>Menos de 5 anos</option>
+        <option>Entre 5 e 10 anos</option>
+        <option>Mais de 10 anos</option>
+        <option>Não sei informar</option>
+      </select>
+
+      <label>Qual a orientação do local onde será instalado os módulos:</label>
+      <select name="orientacao_modulos">
+        <option>Norte</option>
+        <option>Sul</option>
+        <option>Leste</option>
+        <option>Oeste</option>
+        <option>Mais de uma orientação</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_orientacao"></label>
+
+      <label>Caso tenha mais de uma orientação, informar:</label>
+      <input type="text" name="descricao_outra_orientacao">
+      <label>Anexo: <input type="file" name="anexo_outra_orientacao"></label>
+
+      <label>A estrutura do telhado está em boas condições para suportar o peso dos painéis solares?</label>
+      <select name="estrutura_telhado">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_estrutura_telhado"></label>
+
+      <label>Caso a resposta seja não, descreva o que precisaria ser ajustado para que o local esteja adequado para a instalação:</label>
+      <textarea name="ajuste_estrutura"></textarea>
+
+      <label>Como será o acesso ao telhado (escada, andaime, plataforma, etc)?</label>
+      <input type="text" name="acesso_telhado">
+
+      <label>Qual a altura do pé-direito, em metros?</label>
+      <input type="text" name="altura_pe_direito">
+
+      <label>Quais as medidas do telhado (comprimento x largura)?</label>
+      <input type="text" name="medidas_telhado">
+
+      <label>Qual a altura do telhado (do ponto mais baixo ao ponto mais alto)?</label>
+      <input type="text" name="altura_telhado">
+      <label>Anexo: <input type="file" name="anexo_altura_telhado"></label>
+
+      <label>O telhado do cliente tem espaço suficiente para os módulos?</label>
+      <select name="espaco_telhado">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_espaco_telhado"></label>
+
+      <label>Caso a resposta seja não, qual a quantidade máxima de módulos que o telhado comporta?</label>
+      <input type="text" name="quantidade_maxima_modulos">
+
+      <label>Você identificou alguma telha quebrada, vazamento ou dano no telhado?</label>
+      <select name="dano_telhado">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_dano_telhado"></label>
+
+      <label>Caso sim, descreva o que foi identificado:</label>
+      <textarea name="descricao_dano_telhado"></textarea>
+      <label>Anexo: <input type="file" name="anexo_descricao_dano"></label>
+
+      <label>Há necessidade de reforço estrutural ou substituição de telhas antes da instalação?</label>
+      <select name="necessita_reforco">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+
+      <label>Caso sim, o que você sugere que seja realizado?</label>
+      <textarea name="sugestao_reforco"></textarea>
+
+      <label>O cliente autorizou movimentação de antenas, caixas d’água ou outros obstáculos?</label>
+      <select name="autorizacao_movimentacao">
+        <option>Sim</option>
+        <option>Não</option>
+        <option>Não se aplica</option>
+      </select>
+
+      <label>Qual o tipo de caibro?</label>
+      <select name="tipo_caibro">
+        <option>Madeira</option>
+        <option>Metálico</option>
+        <option>Outro</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_caibro"></label>
+
+      <label>Qual a qualidade das vigas, caibros e ripas?</label>
+      <select name="qualidade_estrutura">
+        <option>Em bom estado</option>
+        <option>Regular</option>
+        <option>Ruim</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_estrutura"></label>
+
+      <label>Qual a distância entre vigas e caibros (CxL) em metros?</label>
+      <input type="text" name="distancia_viga_caibro">
+      <label>Anexo: <input type="file" name="anexo_distancia_viga_caibro"></label>
+    </div>
+
+    <div id="bloco_laje" class="hidden">
+      <label>Existem sinais de infiltração nas paredes superiores e inferiores?</label>
+      <select name="infiltracao_laje">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_infiltracao_laje"></label>
+    </div>
+
+    <div id="bloco_solo" class="hidden">
+      <label>Você identificou alguma coisa que pode causar sombreamento?</label>
+      <select name="sombra_solo">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+      <label>Anexo: <input type="file" name="anexo_sombra_solo"></label>
+
+      <label>Caso tenha identificado sombreamento, informe o que está causando:</label>
+      <textarea name="causa_sombra"></textarea>
+      <label>Anexo: <input type="file" name="anexo_causa_sombra"></label>
+    </div>
+
     <button type="submit">Próxima Página</button>
   </form>
 </body>

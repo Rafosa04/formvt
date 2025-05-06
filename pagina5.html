@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário - Página 5 (Módulo 4: Outras Informações)</title>
+  <style>
+    :root {
+      --cor-fundo: #F9FAFB;
+      --cor-primaria: #60B5B5;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-fundo);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: var(--cor-primaria);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .checkbox-container input {
+      margin-right: 10px;
+      width: auto;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4aa4a4;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleRestricoes(select) {
+      document.getElementById('restricoes_info').style.display = select.value === 'Sim' ? 'block' : 'none';
+    }
+    function toggleFV(select) {
+      const show = select.value === 'Sim';
+      document.getElementById('inversor_info').style.display = show ? 'block' : 'none';
+      document.getElementById('modulo_info').style.display = show ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <form action="/gerar_pdf" method="POST" enctype="multipart/form-data">
+    <h1>Pagina 5</h1>
+
+    <label>O imóvel possui restrições ou normas de condomínio/associação para instalação de energia solar?</label>
+    <select name="possui_restricoes" onchange="toggleRestricoes(this)">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <div id="restricoes_info" class="hidden">
+      <label>Quais seriam as restrições?</label>
+      <textarea name="descricao_restricoes"></textarea>
+    </div>
+
+    <label>Você identificou outro sistema fotovoltaico no imóvel do cliente?</label>
+    <select name="sistema_fotovoltaico" onchange="toggleFV(this)">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <div id="inversor_info" class="hidden">
+      <label>Sobre o inversor, informe qual a potência e a marca:</label>
+      <input type="text" name="potencia_marca_inversor">
+      <label>Anexo: <input type="file" name="anexo_inversor_existente"></label>
+    </div>
+
+    <div id="modulo_info" class="hidden">
+      <label>Sobre os módulos, qual a quantidade e potência deles?</label>
+      <input type="text" name="quantidade_potencia_modulos">
+      <label>Anexo: <input type="file" name="anexo_modulos_existentes"></label>
+    </div>
+
+    <label>Existe conexão de internet no local?</label>
+    <select name="conexao_internet">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <label>Se houver, descreva informações importantes que deseja acrescentar sobre a visita:</label>
+    <textarea name="observacoes_finais"></textarea>
+
+    <label>Você já tem a Nota fiscal para anexar?</label>
+    <select name="possui_nota_fiscal">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_nota_fiscal"></label>
+
+    <div class="checkbox-container">
+      <input type="checkbox" name="confirmacao" required />
+      <label>Declaro, sob minha responsabilidade, que todas as informações fornecidas neste formulário são verdadeiras e refletem fielmente a realidade observada durante a visita técnica.</label>
+    </div>
+
+    <button type="submit">Enviar Formulário</button>
+  </form>
+</body>
+</html>

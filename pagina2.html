@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário - Página 2 (Módulo 1: Local de Instalação)</title>
+  <style>
+    :root {
+      --cor-fundo: #F9FAFB;
+      --cor-primaria: #60B5B5;
+      --texto: #2a2a2a;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-fundo);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: var(--cor-primaria);
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4aa4a4;
+    }
+  </style>
+  <script>
+    function toggleLocalInstalacao(select) {
+      const valor = select.value;
+      document.getElementById('bloco_telhado').style.display = valor === 'a' ? 'block' : 'none';
+      document.getElementById('bloco_laje').style.display = valor === 'b' ? 'block' : 'none';
+      document.getElementById('bloco_solo').style.display = valor === 'c' ? 'block' : 'none';
+    }
+    function toggleCampo(checkbox, id) {
+      document.getElementById(id).style.display = checkbox.value === 'a) Sim' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <!-- CORREÇÃO: Removido action="/pagina3" -->
+  <form method="POST" enctype="multipart/form-data">
+    <h1>Página 2</h1>
+
+    <label>Qual será o local de instalação dos módulos:</label>
+    <select name="local_instalacao" onchange="toggleLocalInstalacao(this)" required>
+      <option value="">Selecione</option>
+      <option value="a">Telhado</option>
+      <option value="b">Laje</option>
+      <option value="c">Solo</option>
+    </select>
+
+    <!-- Aqui segue o restante do conteúdo já enviado por você sem mudanças -->
+    <!-- BLOCO TELHADO -->
+    <!-- BLOCO LAJE -->
+    <!-- BLOCO SOLO -->
+
+    <!-- Botão final -->
+    <button type="submit">Próxima Página</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário - Página 3 (Módulo 2: Padrão)</title>
+  <style>
+    :root {
+      --cor-fundo: #F9FAFB;
+      --cor-primaria: #60B5B5;
+      --texto: #2a2a2a;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-fundo);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: var(--cor-primaria);
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4aa4a4;
+    }
+  </style>
+</head>
+<body>
+  <form action="/pagina3" method="POST" enctype="multipart/form-data">
+    <h1>Página 3</h1>
+
+    <!-- [todo o conteúdo continua igual, sem alterações] -->
+
+    <label>Como é o ramal de entrada:</label>
+    <select name="ramal_entrada">
+      <option>Aéreo</option>
+      <option>Subterrâneo</option>
+    </select>
+
+    <label>É possível visualizar o padrão da via pública ou precisa de ter alguém no local para acessá-lo?</label>
+    <input type="text" name="visualizacao_padrao">
+    <label>Anexo: <input type="file" name="anexo_visualizacao_padrao"></label>
+
+    <label>Condição do padrão de entrada:</label>
+    <select name="condicao_padrao">
+      <option>Boa</option>
+      <option>Necessita adequação</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_condicao_padrao"></label>
+
+    <label>O disjuntor do padrão é:</label>
+    <select name="tipo_disjuntor">
+      <option>Monofásico</option>
+      <option>Bifásico</option>
+      <option>Trifásico</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_tipo_disjuntor"></label>
+
+    <label>Qual a amperagem do disjuntor padrão?</label>
+    <input type="text" name="amperagem_disjuntor">
+    <label>Anexo: <input type="file" name="anexo_amperagem_disjuntor"></label>
+
+    <label>Qual é a bitola do cabo de entrada do disjuntor do padrão?</label>
+    <input type="text" name="bitola_cabo_entrada">
+
+    <label>Qual a bitola do cabo de saída do disjuntor do padrão?</label>
+    <input type="text" name="bitola_cabo_saida">
+
+    <label>Qual a bitola do ramal de entrada da concessionária?</label>
+    <input type="text" name="bitola_ramal_concessionaria">
+
+    <label>Você identificou aterramento no padrão?</label>
+    <select name="aterramento">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_aterramento"></label>
+
+    <label>Possui haste de aterramento:</label>
+    <select name="haste">
+      <option>Sim</option>
+      <option>Não</option>
+      <option>Não foi possível verificar</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_haste"></label>
+
+    <label>Qual o modelo da caixa de medição (ex CM2, CM7...)</label>
+    <input type="text" name="modelo_caixa">
+    <label>Anexo: <input type="file" name="anexo_modelo_caixa"></label>
+
+    <label>Qual a dimensão da caixa do padrão (largura x comprimento x profundidade) (em cm)</label>
+    <input type="text" name="dimensao_caixa">
+
+    <label>Foto do medidor</label>
+    <input type="file" name="foto_medidor">
+
+    <label>Qual a concessionária de energia?</label>
+    <input type="text" name="concessionaria">
+
+    <label>Caso a concessionária seja Equatorial, qual o número do poste?</label>
+    <input type="text" name="numero_poste">
+    <label>Anexo: <input type="file" name="anexo_numero_poste"></label>
+
+    <label>Caso o cliente seja do grupo A, anexe a foto da placa do transformador</label>
+    <input type="file" name="anexo_transformador">
+
+    <label>Qual a tensão de fornecimento?</label>
+    <select name="tensao_fornecimento">
+      <option>127v (Fase + Neutro)</option>
+      <option>220V (Fase + Neutro)</option>
+      <option>380V (Fase + Neutro)</option>
+    </select>
+
+    <label>O Padrão está no poste? Caso sim, qual a condição do poste?</label>
+    <input type="text" name="condicao_poste">
+    <label>Anexo: <input type="file" name="anexo_condicao_poste"></label>
+
+    <button type="submit">Próxima Página</button>
+  </form>
+</body>
+</html>

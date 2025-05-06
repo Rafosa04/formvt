@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário - Página 4 (Módulo 3: Instalação do Inversor)</title>
+  <style>
+    :root {
+      --cor-fundo: #F9FAFB;
+      --cor-primaria: #60B5B5;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-fundo);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: var(--cor-primaria);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4aa4a4;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleOutro(select) {
+      document.getElementById('campo_41_1').style.display = select.value === 'c) Outro' ? 'block' : 'none';
+    }
+    function toggleCampo46(select) {
+      document.getElementById('campo_46').style.display = select.value === 'a) Sim' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <form action="/pagina5" method="POST" enctype="multipart/form-data">
+    <h1>Pagina 4</h1>
+
+    <label>Você sugere que seja feito o ponto de conexão do inversor na rede em qual local?</label>
+    <select name="ponto_conexao" onchange="toggleOutro(this)">
+      <option>Padrão</option>
+      <option>Quadro Geral (QDC)</option>
+      <option>Outro</option>
+    </select>
+    <label>Anexo: <input type="file" name="anexo_ponto_conexao"></label>
+
+    <div id="campo_41_1" class="hidden">
+      <label>Caso outro, onde você sugere que seja feito o ponto de conexão do inversor na rede?</label>
+      <input type="text" name="descricao_conexao_outro">
+      <label>Anexo: <input type="file" name="anexo_descricao_conexao_outro"></label>
+    </div>
+
+    <label>Onde seria o local de instalação do inversor?</label>
+    <input type="text" name="local_inversor">
+    <label>Anexo: <input type="file" name="anexo_local_inversor"></label>
+
+    <label>Sobre o local de instalação do inversor, é um local coberto e arejado?</label>
+    <select name="local_coberto_arejado">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <label>Sobre o local de instalação do inversor, é possível obedecer às distâncias de 50 cm de área livre ao redor do inversor e altura máxima 1,80m?</label>
+    <select name="espaco_adequado_inversor">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <label>O local de instalação do inversor atende aos requisitos listados?</label>
+    <select name="local_atende_requisitos">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+
+    <label>Caso o local indicado pelo cliente não atenda aos requisitos, existe outro local autorizado?</label>
+    <select name="outro_local_autorizado" onchange="toggleCampo46(this)">
+      <option>Sim</option>
+      <option>Não</option>
+    </select>
+    <div id="campo_46" class="hidden">
+      <label>Anexo: <input type="file" name="anexo_outro_local_autorizado"></label>
+    </div>
+
+    <label>Qual a distância do telhado ao local de instalação do inversor (em metros)?</label>
+    <input type="text" name="distancia_cabos_cc">
+
+    <label>Qual a distância do inversor até o ponto de conexão (em metros)?</label>
+    <input type="text" name="distancia_cabos_ca">
+
+    <button type="submit">Próxima Página</button>
+  </form>
+</body>
+</html>

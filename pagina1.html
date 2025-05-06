@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário - Página 1</title>
+  <style>
+    :root {
+      --cor-fundo: #F9FAFB;
+      --cor-primaria: #60B5B5;
+      --texto: #2a2a2a;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-fundo);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: var(--cor-primaria);
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4aa4a4;
+    }
+  </style>
+</head>
+<body>
+  <form action="/pagina2" method="POST">
+    <h1>Módulo 1</h1>
+    <label>1 - Informe seu nome completo (Nome do prestador de serviço):</label>
+    <input type="text" name="nome_prestador" required />
+    <label>2 - Informe o nome completo do cliente:</label>
+    <input type="text" name="nome_cliente" required />
+    <label>3 - Data e hora da visita:</label>
+    <input type="datetime-local" name="data_visita" required />
+    <label>4 - Informe o link de localização via Google Maps do local de instalação do sistema:</label>
+    <input type="url" name="link_maps" required />
+    <label>NÃO REPASSE INFORMAÇÕES DA VISITA TÉCNICA AO CLIENTE SOMENTE A ENGENHARIA KINSOL. 
+      EM CASO DE DÚVIDA ORIENTE O CLIENTE A ENTRAR EM CONTATO COM A KAROL.</label>
+    <button type="submit">Próxima Página</button>
+  </form>
+</body>

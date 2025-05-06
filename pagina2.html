@@ -63,23 +63,23 @@
     }
   </style>
   <script>
-    function toggleLocalInstalacao(select) {
-      const valor = select.value;
-      document.getElementById('bloco_telhado').style.display = valor === 'a' ? 'block' : 'none';
-      document.getElementById('bloco_laje').style.display = valor === 'b' ? 'block' : 'none';
-      document.getElementById('bloco_solo').style.display = valor === 'c' ? 'block' : 'none';
-    }
-    function toggleCampo(checkbox, id) {
-      document.getElementById(id).style.display = checkbox.value === 'a) Sim' ? 'block' : 'none';
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.querySelector('select[name="local_instalacao"]');
+      select.addEventListener('change', () => {
+        const valor = select.value;
+        document.getElementById('bloco_telhado').style.display = valor === 'a' ? 'block' : 'none';
+        document.getElementById('bloco_laje').style.display = valor === 'b' ? 'block' : 'none';
+        document.getElementById('bloco_solo').style.display = valor === 'c' ? 'block' : 'none';
+      });
+    });
   </script>
 </head>
 <body>
-  <form action="/pagina3" method="POST" enctype="multipart/form-data">
+  <form>
     <h1>Página 2</h1>
 
     <label>Qual será o local de instalação dos módulos:</label>
-    <select name="local_instalacao" onchange="toggleLocalInstalacao(this)" required>
+    <select name="local_instalacao" required>
       <option value="">Selecione</option>
       <option value="a">Telhado</option>
       <option value="b">Laje</option>
@@ -221,7 +221,7 @@
       <label>Anexo: <input type="file" name="anexo_causa_sombra"></label>
     </div>
 
-    <button type="submit">Próxima Página</button>
+    <button type="button" onclick="alert('Visualização completa!')">Próxima Página</button>
   </form>
 </body>
 </html>
